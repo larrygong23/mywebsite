@@ -1,0 +1,22 @@
+<!-- ng-if is used to display information when something is true.
+In this case, it displays a default message when there are no comments -->
+<div class="comment comment-body" ng-if="post.comments.length === 0">
+  There are no comments yet.  Be the first!
+</div>
+
+<div class="comment" ng-repeat="comment in post.comments | orderBy: '-upvotes'">
+  <span class="glyphicon glyphicon-plus-sign" ng-click="upVote(comment)"></span> Upvotes: {{comment.upvotes}}
+  <span class="comment-body">
+    {{comment.body}}
+  </span>
+</div>
+
+
+<form ng-submit="addComment()" style="margin-top:30px;">
+  <h3>Add a new Comment</h3>
+
+  <div class="form-group">
+    <input type="text" class="fomr-control" placeholder="Comment" ng-model="body"></input>
+  </div>
+  <button type="submit" class="btn btn-primary">Comment</button>
+</form>

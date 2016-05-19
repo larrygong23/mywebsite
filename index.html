@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Larry Gong</title>
+
+    <script src="js/react.js"></script>
+	  <script src="js/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+    <!--This is our Google Arvo font and Font-Awesome -->
+    <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/custom.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div id="app"></div>
+
+
+    <script type="text/babel">
+      //NavBar Component
+        var NavBar = React.createClass({
+          render: function() {
+            return(
+                <div className="navbar navbar-inverse navbar-fixed-top">
+                  <div className="container">
+                    <div className="navbar-header">
+                      <a className="navbar-brand" href="#"><img src="images/Top-Logo.png" alt="One Million Lines" title="One Million Lines" /></a>
+                    </div>
+                    <div id="navbar" className="collapse navbar-collapse">
+                      <ul className="nav navbar-nav navbar-right">
+                        <li><a href="#get-involved">Get Involved</a></li>
+                        <li><a href="#who">About</a></li>
+                        <li><a href="designpage.html" target="_blank">Art Recomandation</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+            )
+          }
+        });
+
+
+
+        //Jumbotron Component
+        var Jumbotron = React.createClass({
+          propTypes: {
+            heading: React.PropTypes.string,
+            text: React.PropTypes.string,
+            link: React.PropTypes.string
+          },
+          getDefaultProps: function() {
+            return {
+              heading: "This is Larry Gong's learning community",
+              text: 'My goal is to make the world different by coding_',
+              link: 'https://mail.google.com/mail/u/4/#inbox'
+            }
+          },
+          render:function() {
+            return(
+              <div className="jumbotron">
+                <div className="container">
+                  <h1>{this.props.heading}</h1>
+                  <p>{this.props.text}</p>
+                  <p><a className="btn btn-danger btn-lg" href={this.props.link} role="button">Email me &raquo;</a></p>
+                  <img src="images/Code.png" title="Code.org logo" alt="Code.org" />
+                </div>
+              </div>
+            )
+          }
+        });
+
+
+        //HomePage Component
+        var HomePage = React.createClass({
+          render: function() {
+            return(
+              <div id = "who">
+                <div className="container homepage">
+                  <img src="images/academy-brand-med.png" alt = "MASSIVE Academy" title="MASSIVE Academy" />
+                  <h2>Who I Am</h2>
+                  <hr />
+                  <p>
+                    <ul>
+                      <li>Front-end oriented full stack developer with 6 years experiences in multiple domains. </li>
+                      <li>Expert in HTML5, CSS3, Bootstrap, Javascript and jQuery.</li>
+                      <li>Master in MEAN Stack development.</li>
+                      <li>Proficient in JSON and AJAX to connect with back-end applications.</li>
+                      <li>Certified JavaSE8 Programmer and proficient with J2EE technologies. </li>
+                      <li>Experiences in  Oracle, MySQL, PostGres and MongoDB database. </li>
+                      <li>Good at creating and consuming RESTful and SOAP web service.</li>
+                      <li><i><b>Phone: 9176521697, Email: larrygong23@gmail.com</b></i></li>
+                    </ul>
+                  </p>
+                </div>
+              </div>
+            )
+          }
+        });
+
+
+        //Button Component
+        var ButtonComponent = React.createClass({
+          render: function() {
+            return(
+              <div id="get-involved">
+                <div className="container homepage">
+                  <h2>Get Involved</h2>
+                  <hr />
+
+                    <div className="row">
+                      <div className="col-md-4">
+                        <span className="fa-stack fa-4x">
+                          <i className="fa fa-circle fa-stack-2x"></i>
+                          <i className="fa fa-user fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h3>Locations</h3>
+                        <p>This is the popular locations in NYC. </p>
+                        <p><a className="btn btn-default" href="location.html" target="_blank" role="button">Start learning &raquo;</a></p>
+                      </div>
+                      <div className="col-md-4">
+                        <span className="fa-stack fa-4x">
+                          <i className="fa fa-circle fa-stack-2x"></i>
+                          <i className="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h3>Suggestions</h3>
+                        <p>Give me some suggestions and upvote for it! </p>
+                        <p><a className="btn btn-default" href="suggestindex.html" target="_blank" role="button">Suggest now &raquo;</a></p>
+                     </div>
+                      <div className="col-md-4">
+                        <span className="fa-stack fa-4x">
+                          <i className="fa fa-circle fa-stack-2x"></i>
+                          <i className="fa fa-money fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h3>Sponsors</h3>
+                        <p>If you love coding and love my portfolio.  Click to get involved.</p>
+                        <p><a className="btn btn-default" href="#" role="button">Give Support &raquo;</a></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            )
+          }
+        });
+
+
+        // Footer Component
+        var Footer = React.createClass({
+          render: function() {
+            return(
+              <footer>
+                <div className="container">
+                  <p><img src="images/one-million-bottom-brand.png" /></p>
+                </div>
+              </footer>
+            )
+          }
+        })
+
+
+        //Main App Component
+        var App = React.createClass({
+          render: function() {
+            return(
+              <div>
+                <NavBar />
+                  <Jumbotron />
+                  <HomePage />
+                  <ButtonComponent />
+                  <Footer />
+              </div>
+            )
+          }
+        });
+
+
+
+        ReactDOM.render(
+          <App />,
+          document.getElementById('app')
+        );
+
+    </script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

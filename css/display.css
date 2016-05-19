@@ -1,0 +1,7 @@
+.col-md-6
+{
+    /*display: table-cell;*/
+    float: none;
+    vertical-align: bottom;
+    width: 85%
+}
